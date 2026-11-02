@@ -1,0 +1,285 @@
+{
+  "original_commit": "599cd8bcb52b3e2d8a2219357993326cfc84a552",
+  "files": [
+    {
+      "source": "src/graph_construction/loaders/base.py",
+      "destination": "src/nutriproxkg/loaders/base.py",
+      "selection": "whole file, formatting may differ",
+      "source_sha256": "ae39439d499be33394939a5743036f52af38c4daaaa7c20aa3a23e35eb0e8772",
+      "release_sha256": "bd2e4bf69dc5536297b6742d8df28fabb4b6390f41bd49e4bc1e97c18b1ba330"
+    },
+    {
+      "source": "src/graph_construction/loaders/foodb_loader.py",
+      "destination": "src/nutriproxkg/loaders/foodb_loader.py",
+      "selection": "whole file, formatting may differ",
+      "source_sha256": "c355a589bf30d460d60fd4814e85d55b7e6edc33220db7638a0e6215d19445e8",
+      "release_sha256": "f6073281da2c46fdfa9ac242c0dd121a9293cc0e829b26adec5c56a636fc4450"
+    },
+    {
+      "source": "src/graph_construction/loaders/foodon_loader.py",
+      "destination": "src/nutriproxkg/loaders/foodon_loader.py",
+      "selection": "whole file, formatting may differ",
+      "source_sha256": "01ba884aeeed8c878b6516d3a25f2b501ca2bdb84d6ab7f46667e3fb9c9714a3",
+      "release_sha256": "faf9584dad5bce1f712d0aced4f70a6e2194d5b6ae7b62755f025d430006e3c3"
+    },
+    {
+      "source": "src/graph_construction/models.py",
+      "destination": "src/nutriproxkg/models.py",
+      "selection": "whole file, formatting may differ",
+      "source_sha256": "dd6b8059833fe01d1804fafe6d7d380b446938cfa86b473ba1314f2f34d87807",
+      "release_sha256": "c8fffe7470f470f4923410322c84ab3131b37eaca95b3b40544cd64e86bc1d05"
+    },
+    {
+      "source": "src_chemtaxfoodkg/common/eu_tolerance.py",
+      "destination": "src/nutriproxkg/eu_tolerance.py",
+      "selection": "whole file, formatting may differ",
+      "source_sha256": "73b7f1ac03a6befc4f61f20c22adf47db94f67690ab86032886863e1690dde17",
+      "release_sha256": "241dbbafb55577946e3169ffa8fa170c93cc6f6a537ca7afec091ab2bf09ede6"
+    },
+    {
+      "source": "src_chemtaxfoodkg/common/cv.py",
+      "destination": "src/nutriproxkg/cv.py",
+      "selection": "whole file, formatting may differ",
+      "source_sha256": "15b1f98298462bbbb3a4b4931215b09f31a7236e9dd081304b9f3eb0090c5ecf",
+      "release_sha256": "4cc5da2495ef5b3190965a4bef818e92058a0e71e3f29cc63644f843e3521ad2"
+    },
+    {
+      "source": "src_chemtaxfoodkg/common/text_normalize.py",
+      "destination": "src/nutriproxkg/text_normalize.py",
+      "selection": "whole file, formatting may differ",
+      "source_sha256": "c6fa9ee6423312f84a423fb1c6aa28fb8f89242fc40c6732fd67c4e344456aff",
+      "release_sha256": "61725cb84a63d0bcc08ee4b2d8c9b10d281a70ee4d2d68046b4c709d1f392167"
+    },
+    {
+      "source": "src_chemtaxfoodkg/e2e/nutrient_aliases.py",
+      "destination": "src/nutriproxkg/nutrient_aliases.py",
+      "selection": "whole file, formatting may differ",
+      "source_sha256": "4953a599b5e5e8ae42caf8f632047638979eee4140a853e530fde07f2778ef48",
+      "release_sha256": "3cb885696b6c29175ab9ce2a0c09ffe192239a0f34a7c669b7ffd86a2bbe58e0"
+    },
+    {
+      "source": "src_chemtaxfoodkg/e2e/edge_features.py",
+      "destination": "src/nutriproxkg/edge_features.py",
+      "selection": "whole file, formatting may differ",
+      "source_sha256": "9759bf3027a82b76e3bba1e9d0e55b587f0372b71b8dfc93dc4fa4f2005f5fa0",
+      "release_sha256": "edd69932b457c484a7840042049815efe3da97deaaff92371b98fcfcc9dd674e"
+    },
+    {
+      "source": "src_chemtaxfoodkg/common/hetero_gnn_trainer.py",
+      "destination": "src/nutriproxkg/encoder.py",
+      "source_sha256": "b73b57177e4e01820a54ae8097a57a6582d16041802b5071f800a4a087767248",
+      "selection": [
+        "GNNConfig",
+        "GraphData",
+        "EarlyStopping",
+        "RGCNHeteroEncoder"
+      ],
+      "release_sha256": "08645a436dd6e1ae70d855878a6a16c47c376262aad3a991f378a5a9a5490d04"
+    },
+    {
+      "source": "src_chemtaxfoodkg/e2e/inductive.py",
+      "destination": "src/nutriproxkg/training.py",
+      "source_sha256": "3fe5141deae6530191a76bca85e22300236c33fc7a5b9ea9e0acfaaf23907815",
+      "selection": [
+        "filter_edges",
+        "_inner_split",
+        "train_predict_general",
+        "_train_loop",
+        "_build_general_model"
+      ],
+      "release_sha256": "f098ee077b0d6ca40ddf9c6257b654f1ecbc70f4d805635098d0eed68886e21e"
+    },
+    {
+      "source": "src_chemtaxfoodkg/common/preprocess.py",
+      "destination": "src/nutriproxkg/seed.py",
+      "source_sha256": "13e5ef6e4bdc78d9e0bcf3272357c90bcd7bb2b88017f1e43388fb214d5620d8",
+      "selection": [
+        "set_seed"
+      ],
+      "release_sha256": "d3c322f17d6a8542420fac9aca1e30012af7aefbdef9c0d714066a5b5f3142ee"
+    },
+    {
+      "source": "src_chemtaxfoodkg/common/metrics.py",
+      "destination": "src/nutriproxkg/regression_metrics.py",
+      "source_sha256": "f6860fd840d05c9e9e234b1113861803cf3cb14008f9044e31731435dba0fa97",
+      "selection": [
+        "rmse_per_target"
+      ],
+      "release_sha256": "bf4acd83f14b1d6ea9da96cbff22672ce05409ef8d430b678ce474ae76dbc2ea"
+    },
+    {
+      "source": "src_chemtaxfoodkg/tasks/task2_nutrition.py",
+      "destination": "src/nutriproxkg/regression.py",
+      "source_sha256": "f303d67ff368e94491308bdd2072283bac2021f0f205df75bd0faaeed1fe3d44",
+      "selection": [
+        "_impute_train",
+        "_per_nutrient_metrics"
+      ],
+      "release_sha256": "1298addcb927a8630377c43730f7bf072143908c75a78b4fb9ce8e7d51ccf146"
+    },
+    {
+      "source": "src_chemtaxfoodkg/e2e/evaluate.py",
+      "destination": "src/nutriproxkg/evaluation.py",
+      "source_sha256": "c3195b55d1380cc43941ab17f39fbff78be5478861ae2a742a4eae8082c4b188",
+      "selection": [
+        "_aggregate",
+        "aggregate_seed_blocks",
+        "_enrich",
+        "kfold_regression"
+      ],
+      "release_sha256": "f7f98ef21060982be6e46568a9ec4f1d60a3b5bb292de73c067388b71736c6ce"
+    },
+    {
+      "source": "src_chemtaxfoodkg/e2e/config.py",
+      "destination": "src/nutriproxkg/training_config.py",
+      "source_sha256": "ecab9947f23e164c9b7e8ef1411b133051b132d84bee765795fc9e38dbd06183",
+      "selection": [
+        "E2EConfig"
+      ],
+      "release_sha256": "71b90bd76f066e33fb4cd1a5ce895f278a66f14bbffe1930e4f310be09608be6"
+    },
+    {
+      "source": "src_chemtaxfoodkg/experiments/model_free_nutritional_similarity_retrieval/src/load_graphs.py",
+      "destination": "src/nutriproxkg/retrieval/load_graphs.py",
+      "source_sha256": "2333b385e708d983da3afb9fd63bba1542493efd6f76fa382d433fb120a62429",
+      "selection": [
+        "MFGraph"
+      ],
+      "release_sha256": "fc393b4a000f291cdd1adca202017c376f622de2bc1a2f3705759f4e2e67b6ff"
+    },
+    {
+      "source": "src_chemtaxfoodkg/experiments/model_free_nutritional_similarity_retrieval/src/graph_preprocess.py",
+      "destination": "src/nutriproxkg/retrieval/graph_preprocess.py",
+      "selection": "whole file, formatting may differ",
+      "source_sha256": "8f9b547a9a2c2b4e3b9b902c19709a6c94869397835a4cc42e8eac740b80c9f9",
+      "release_sha256": "ecd686626c944179789fcff984c79796253fbba2f8e91d766c29c41be431edf4"
+    },
+    {
+      "source": "src_chemtaxfoodkg/experiments/model_free_nutritional_similarity_retrieval/src/inference_ppr.py",
+      "destination": "src/nutriproxkg/retrieval/inference_ppr.py",
+      "selection": "whole file, formatting may differ",
+      "source_sha256": "156c720070025accc48257913b869522d3dcd3b7d6279c82ecb4f9589cbfcc7e",
+      "release_sha256": "8ca1cdff62fb7a45625c218b4224265fea8aced876a851fdab8b558652334fc6"
+    },
+    {
+      "source": "src_chemtaxfoodkg/experiments/model_free_nutritional_similarity_retrieval/src/inference_projection.py",
+      "destination": "src/nutriproxkg/retrieval/inference_projection.py",
+      "selection": "whole file, formatting may differ",
+      "source_sha256": "f794ca413c8959c7f3495a32eb43fc5658d379c317481a4d3653a9bd94361f03",
+      "release_sha256": "94b6f600a7f9f35e186523cf9d1b36541cd04c24de57163abca8a88e35a81b23"
+    },
+    {
+      "source": "src_chemtaxfoodkg/experiments/model_free_nutritional_similarity_retrieval/src/inference_metapath.py",
+      "destination": "src/nutriproxkg/retrieval/inference_metapath.py",
+      "selection": "whole file, formatting may differ",
+      "source_sha256": "95efcf30922637a40a54cbe985953b0a3c7cc64353180e167e35024ea7dee498",
+      "release_sha256": "2f2cab5254a6ab5caa61316da1a19a5c7694b590c4fa19890bd987dfdd922ef1"
+    },
+    {
+      "source": "src_chemtaxfoodkg/experiments/model_free_nutritional_similarity_retrieval/src/nutrient_gold.py",
+      "destination": "src/nutriproxkg/retrieval/nutrient_gold.py",
+      "selection": "whole file, formatting may differ",
+      "source_sha256": "3d543822ab4f23533f1f8367816a01b878bfac2ae9a2eac5985be555f54dfae7",
+      "release_sha256": "3d6bb3c0273cc71f6e2b0108cb1e2bbc28689515f2a92c5cc51afc25bd548c79"
+    },
+    {
+      "source": "src_chemtaxfoodkg/experiments/model_free_nutritional_similarity_retrieval/src/metrics.py",
+      "destination": "src/nutriproxkg/retrieval/metrics.py",
+      "selection": "whole file, formatting may differ",
+      "source_sha256": "229d75e943fa2e80bfcd5726d087003ee4c7530bff8685cf9c0a04d07d2a45be",
+      "release_sha256": "154e3c66126e17e002665ffb77deddbcf5a97792d821e0ea34c77b58f1eaaa40"
+    },
+    {
+      "source": "src_chemtaxfoodkg/src_4_revised/review_b_03_design_sensitivity.py",
+      "destination": "src/nutriproxkg/similarity.py",
+      "source_sha256": "f6e934613d931accd6880196bbee0f47e737a4330a2a707e061c794832fabb04",
+      "selection": [
+        "cosine_edges"
+      ],
+      "release_sha256": "eee2394bf34f2bd0777402d30e84452707733e85b21d6aefb106f8c4fc75b08e"
+    }
+  ],
+  "adaptation_notes": [
+    "Portable package/import paths; unused model branches removed; explicit tolerance path and non-finite-loss checks added.",
+    "Dataclass decorators retained; code formatted.",
+    "New pipeline and CLI source-to-experiment adapters are documented separately in reproducibility.md."
+  ],
+  "selected_definition_ast_comparison": {
+    "unchanged": [
+      "src/nutriproxkg/encoder.py:GNNConfig",
+      "src/nutriproxkg/encoder.py:GraphData",
+      "src/nutriproxkg/encoder.py:EarlyStopping",
+      "src/nutriproxkg/encoder.py:RGCNHeteroEncoder",
+      "src/nutriproxkg/training.py:filter_edges",
+      "src/nutriproxkg/training.py:_inner_split",
+      "src/nutriproxkg/training.py:train_predict_general",
+      "src/nutriproxkg/seed.py:set_seed",
+      "src/nutriproxkg/regression_metrics.py:rmse_per_target",
+      "src/nutriproxkg/regression.py:_impute_train",
+      "src/nutriproxkg/regression.py:_per_nutrient_metrics",
+      "src/nutriproxkg/evaluation.py:_aggregate",
+      "src/nutriproxkg/evaluation.py:aggregate_seed_blocks",
+      "src/nutriproxkg/evaluation.py:_enrich",
+      "src/nutriproxkg/training_config.py:E2EConfig",
+      "src/nutriproxkg/retrieval/load_graphs.py:MFGraph"
+    ],
+    "adapted": [
+      "src/nutriproxkg/training.py:_train_loop",
+      "src/nutriproxkg/training.py:_build_general_model",
+      "src/nutriproxkg/evaluation.py:kfold_regression",
+      "src/nutriproxkg/similarity.py:cosine_edges"
+    ]
+  },
+  "portable_adapter_sources": {
+    "src/nutriproxkg/pipeline.py": {
+      "research_references": [
+        "src/graph_construction/graph_builder.py",
+        "src/graph_construction/loaders/ncbi_loader.py",
+        "src_chemtaxfoodkg/build_graphs.py",
+        "src_chemtaxfoodkg/e2e/graph_build.py",
+        "src_chemtaxfoodkg/e2e/mask_runtime.py"
+      ],
+      "notes": "Streaming and compact-map adapters preserve the legacy name-merge, cap/mask and float32 profile semantics. Local indices are portable as documented."
+    }
+  },
+  "reference_manuscript": {
+    "source": "IEICE-DEIM---N.Yoshimaru/main_revise.pdf",
+    "sha256": "00eec31c0bfaf48aaa607754063249e992c2affe1f142c5f9bcdab1573d106e8",
+    "redistributed": false
+  },
+  "release_code_sha256": {
+    "src/nutriproxkg/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/nutriproxkg/__main__.py": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279",
+    "src/nutriproxkg/cli.py": "496a9685220ac8cb3e826a114e28248dff74c3ad806f603b4b15742158c7dd19",
+    "src/nutriproxkg/cv.py": "4cc5da2495ef5b3190965a4bef818e92058a0e71e3f29cc63644f843e3521ad2",
+    "src/nutriproxkg/edge_features.py": "edd69932b457c484a7840042049815efe3da97deaaff92371b98fcfcc9dd674e",
+    "src/nutriproxkg/encoder.py": "08645a436dd6e1ae70d855878a6a16c47c376262aad3a991f378a5a9a5490d04",
+    "src/nutriproxkg/eu_tolerance.py": "241dbbafb55577946e3169ffa8fa170c93cc6f6a537ca7afec091ab2bf09ede6",
+    "src/nutriproxkg/evaluation.py": "f7f98ef21060982be6e46568a9ec4f1d60a3b5bb292de73c067388b71736c6ce",
+    "src/nutriproxkg/loaders/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/nutriproxkg/loaders/base.py": "bd2e4bf69dc5536297b6742d8df28fabb4b6390f41bd49e4bc1e97c18b1ba330",
+    "src/nutriproxkg/loaders/foodb_loader.py": "f6073281da2c46fdfa9ac242c0dd121a9293cc0e829b26adec5c56a636fc4450",
+    "src/nutriproxkg/loaders/foodon_loader.py": "faf9584dad5bce1f712d0aced4f70a6e2194d5b6ae7b62755f025d430006e3c3",
+    "src/nutriproxkg/models.py": "c8fffe7470f470f4923410322c84ab3131b37eaca95b3b40544cd64e86bc1d05",
+    "src/nutriproxkg/nutrient_aliases.py": "3cb885696b6c29175ab9ce2a0c09ffe192239a0f34a7c669b7ffd86a2bbe58e0",
+    "src/nutriproxkg/pipeline.py": "ce75e3007e3a75fd8f4d0b15924f2e588ecf7bc1fa44c11a76e3618ab9d52cdf",
+    "src/nutriproxkg/regression.py": "1298addcb927a8630377c43730f7bf072143908c75a78b4fb9ce8e7d51ccf146",
+    "src/nutriproxkg/regression_metrics.py": "bf4acd83f14b1d6ea9da96cbff22672ce05409ef8d430b678ce474ae76dbc2ea",
+    "src/nutriproxkg/retrieval/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/nutriproxkg/retrieval/graph_preprocess.py": "ecd686626c944179789fcff984c79796253fbba2f8e91d766c29c41be431edf4",
+    "src/nutriproxkg/retrieval/inference_metapath.py": "2f2cab5254a6ab5caa61316da1a19a5c7694b590c4fa19890bd987dfdd922ef1",
+    "src/nutriproxkg/retrieval/inference_ppr.py": "8ca1cdff62fb7a45625c218b4224265fea8aced876a851fdab8b558652334fc6",
+    "src/nutriproxkg/retrieval/inference_projection.py": "94b6f600a7f9f35e186523cf9d1b36541cd04c24de57163abca8a88e35a81b23",
+    "src/nutriproxkg/retrieval/load_graphs.py": "fc393b4a000f291cdd1adca202017c376f622de2bc1a2f3705759f4e2e67b6ff",
+    "src/nutriproxkg/retrieval/metrics.py": "154e3c66126e17e002665ffb77deddbcf5a97792d821e0ea34c77b58f1eaaa40",
+    "src/nutriproxkg/retrieval/nutrient_gold.py": "3d6bb3c0273cc71f6e2b0108cb1e2bbc28689515f2a92c5cc51afc25bd548c79",
+    "src/nutriproxkg/seed.py": "d3c322f17d6a8542420fac9aca1e30012af7aefbdef9c0d714066a5b5f3142ee",
+    "src/nutriproxkg/similarity.py": "eee2394bf34f2bd0777402d30e84452707733e85b21d6aefb106f8c4fc75b08e",
+    "src/nutriproxkg/text_normalize.py": "61725cb84a63d0bcc08ee4b2d8c9b10d281a70ee4d2d68046b4c709d1f392167",
+    "src/nutriproxkg/training.py": "f098ee077b0d6ca40ddf9c6257b654f1ecbc70f4d805635098d0eed68886e21e",
+    "src/nutriproxkg/training_config.py": "71b90bd76f066e33fb4cd1a5ce895f278a66f14bbffe1930e4f310be09608be6",
+    "scripts/audit_release.py": "b9a12323cce1ce9b786678c6024f7c034fb50194f6aaefbc3455b465750b8b1e",
+    "scripts/make_synthetic.py": "672f3f8546f47c453ba18f55cfb001a43896cec0274dc74fdc558ff9822b9e87",
+    "tests/test_research_invariants.py": "c819a592dc75210568992e0991cab14d10145902c22426ffacc7a1ea97ff23f2"
+  }
+}

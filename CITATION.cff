@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "Please cite the associated manuscript when using this research code. Publication metadata requires author confirmation."
+type: software
+title: NutriProxKG
+version: 0.1.0
+authors:
+  - family-names: Yoshimaru
+    given-names: Naoki
+  - family-names: Hatano
+    given-names: Kenji
+repository-code: "https://github.com/du-cis-mil/NutriProxKG"
+license: MIT
+preferred-citation:
+  type: unpublished
+  title: "NutriProxKG: Structuring Taxonomic and Chemical Proximity for Nutrition-Aware Food Ingredient Representation"
+  authors:
+    - family-names: Yoshimaru
+      given-names: Naoki
+    - family-names: Hatano
+      given-names: Kenji
+  notes: "Revised manuscript prepared for IEICE Transactions on Information and Systems. Acceptance status and final publication metadata have not been verified."

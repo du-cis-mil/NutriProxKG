@@ -1,0 +1,74 @@
+# Relative paths are resolved against the parent of this configs directory.
+raw: data/raw
+processed: data/processed
+output: outputs/main
+tolerance: configs/eu_tolerance.yaml
+foods: null
+track: n3
+graph:
+  variant: proposed
+  rank: genus
+  upper_levels: 2
+  search_limit: 20
+  cosine_threshold: 0.9
+  min_compounds: 5
+  ics_lineage_limit: 50
+drop_relations: []
+gold:
+  log1p: true
+  zscore: true
+  topk:
+  - 5
+  - 10
+  - 20
+  relevance: rank_based
+  rank_gain_cutoff: 20
+inference:
+  methods:
+  - vanilla_ppr
+  - typed_ppr
+  - projection
+  - metapath
+  - direct_cosine
+  ppr:
+    alpha: 0.15
+    directed: false
+    max_iter: 100
+    tol: 1.0e-06
+  projection:
+    combine_metric: adamic_adar
+metrics:
+  ndcg_k:
+  - 5
+  - 10
+  - 20
+  recall_k:
+  - 5
+  - 10
+  - 20
+  map_k: 10
+training:
+  model: rgcn_l3
+  device: cpu
+  amp: false
+  threads: 1
+  seeds:
+  - 42
+  - 43
+  - 44
+  - 45
+  - 46
+  graph_seed: 42
+  k_folds: 5
+  feature_dim: 64
+  hidden_dim: 128
+  dropout: 0.4
+  n_ii_layers: 3
+  epochs: 600
+  lr: 0.002
+  weight_decay: 0.0001
+  patience: 60
+  min_delta: 0.0001
+  inner_val_frac: 0.15
+  topk_compounds: 256
+  aux_structural_weight: 0.0

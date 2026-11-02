@@ -1,0 +1,41 @@
+carbs_g:
+  rule: eu_table1_carb_like
+fat_g:
+  rule: eu_table1_fat
+protein_g:
+  rule: eu_table1_carb_like
+water_g:
+  rule: unsupported
+  note: EU guidance Table 1 does not define a nutrition-label tolerance for water.
+calcium_g:
+  rule: eu_table1_mineral
+copper_g:
+  rule: eu_table1_mineral
+iodine_g:
+  rule: eu_table1_mineral
+iron_g:
+  rule: eu_table1_mineral
+manganese_g:
+  rule: eu_table1_mineral
+phosphorus_g:
+  rule: eu_table1_mineral
+potassium_g:
+  rule: eu_table1_mineral
+selenium_g:
+  rule: eu_table1_mineral
+sodium_g:
+  rule: eu_table1_sodium
+vitamin_a_retinol_g:
+  rule: eu_table1_vitamin
+vitamin_b1_thiamine_g:
+  rule: eu_table1_vitamin
+vitamin_b2_riboflavin_g:
+  rule: eu_table1_vitamin
+vitamin_b9_folate_g:
+  rule: eu_table1_vitamin
+vitamin_c_g:
+  rule: eu_table1_vitamin
+vitamin_e_tocopherol_g:
+  rule: eu_table1_vitamin
+zinc_g:
+  rule: eu_table1_mineral
