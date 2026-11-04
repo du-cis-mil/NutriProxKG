@@ -21,7 +21,7 @@ renamed, formatted, and connected with new portable adapters.
 | §4.2 / Table 3(b): Task 2 | `e2e/inductive.py::train_predict_general`, `common/hetero_gnn_trainer.py::RGCNHeteroEncoder`, `e2e/evaluate.py`; revised full-scale protocol | `training.py`, `encoder.py`, `evaluation.py`, `cli.task2` | `nutriproxkg task2 --config configs/nutri19.yaml`; short synthetic training verified |
 | Table 3(b) train-fold mean | revised B-4 non-graph baseline | `training.model: train_mean` | copy YAML, change model and output; same task2 command |
 | ICS comparator | `e2e/graph_build.py::build_ics_typed` | `graph.variant: ics`, source-taxonomy lineages (at most 50 nodes, including the original anchor), no similar_to | use a separate processed/output directory; synthetic verified; historical node ordering not reproduced |
-| §5 relation-removal probes | original Task 1 ablation config, revised B-3 / B-5 | `drop_relations` accepts any of five forward relation names | same build/task commands; synthetic edge-filter semantics verified; paper Fig. 3 uses unmasked historical inputs and is not reproduced verbatim |
+| §5.1 / final Fig. 3: masked relation-removal probes | track-specific masked Task 1 ablation outputs in the research tree | `drop_relations` accepts any of five forward relation names | masked build/task commands can express the conditions; synthetic edge-filter semantics verified; numerical reproduction of all nine conditions on both tracks is not recorded for this release |
 | §5 sensitivity | revised B-3 and `sensitivity_validation/` | configurable threshold, rank, L, minimum compounds, search limit | copy YAML per condition, use separate processed/output roots; grid orchestration / paper figure generation not included |
 | Experiment summaries | old dashboards/recompute scripts | `cli.summarize` | `nutriproxkg aggregate --outputs outputs`; CSV and JSON verified |
 
@@ -31,6 +31,46 @@ A supplied evaluation list is filtered in nutrient CSV order, so graph variants
 use identical row indices if they use the same preprocessed labels and list.
 Every Task 2 result retains explicit per-seed fold train/test rows, reference
 values, predictions and train statistics; each food is predicted once per seed.
+
+## Final Fig. 3 versus historical unmasked ablations
+
+The final revised manuscript's **Fig. 3 uses target-nutrient-masked Task 1
+retrieval on both Nutri-3 and Nutri-19**, with typed PPR, nDCG@10 and Recall@10.
+All nine conditions use the corresponding track's target exclusion. `Full`
+retains all four relation families and matches the NutriProxKG typed-PPR row in
+Table 3(a) of the manuscript. This manuscript correspondence is not a claim that
+the released code has been numerically validated for every Fig. 3 bar.
+
+The four families are Compound (`has_compound`), Genus (`from_genus` together with
+`subtaxon_of`), Comp-sim (`similar_to`), and Ontology (`is_a`). An `only` condition
+retains the named family and drops the other three; a `w/o` condition drops the
+named family or families and retains the others. The nine conditions are Full,
+Compound only, Genus only, Comp-sim only, Ontology only, w/o Genus, w/o Comp-sim,
+w/o Ontology, and w/o Genus+Sim. In particular, w/o Genus drops both `from_genus`
+and `subtaxon_of`; w/o Genus+Sim also drops `similar_to`. All conditions retain
+the nodes. The release's `drop_relations` filters the five forward relation
+names before adding inverse relations (`pipeline.load_graph`); `pipeline.build`
+recomputes similarity after the track-specific target mask. These interfaces
+can express the masked conditions using separate processed/output roots and the
+same supplied evaluation food list. Grid orchestration, the paper's saved
+nine-condition outputs and figure export are not included.
+
+Earlier manuscript versions used **unmasked historical Task 1 ablations** for
+Fig. 3. Those results are superseded by the final masked figure and must not be
+used as its inputs or described as its evaluation protocol. Separately, the
+structural coherence diagnostic in Fig. 4(a) retains its pre-masking saved graph
+and 327-food nutrient-CSV scope; it is not the masked Fig. 3 experiment.
+
+The executed checks remain those recorded in [validation.md](validation.md).
+They establish synthetic relation-filter semantics and, using locally supplied
+historical common-food lists, rounded agreement for **20 Table 3(a) cells**:
+four graph retrieval methods plus direct cosine, two metrics, and two tracks,
+for NutriProxKG/direct cosine. Those food lists were not reconstructed or
+redistributed. The record does **not** establish numerical reproduction of all
+nine Fig. 3 conditions, the other graphs' Table 3 cells, or the full Task 2
+published scores. The short Task 2 runs check execution and finite outputs,
+not the paper's full training results. No historical graphs, labels, rankings,
+predictions or experiment-result files are distributed in this repository.
 
 ## Task definitions and scoring
 
@@ -112,11 +152,11 @@ population std (ddof=0). No standard deviation treats 25 folds as independent.
    initialization and tied rankings can consequently differ even with identical
    source files. This is a documented portability choice, not numeric parity.
    It requires a full-source comparison before claiming reproduction.
-4. **Five-compound eligibility.** The article can be read as testing profile
-   size after excluding target nutrients. The actual historical masked-similarity
-   builder chooses >=5 positive compounds **before** masking and then recomputes
-   cosine after masking. The release preserves that order. Changing it may remove
-   edges and change both tasks; no silent correction is made.
+4. **Five-compound eligibility.** The final manuscript's Section 3.3 and the
+   historical masked-similarity builder choose >=5 distinct positive compounds
+   **before** masking at both endpoints, then recompute cosine after masking.
+   The release preserves that order. Applying eligibility after masking would
+   define different inputs and may change both tasks; no such change is made.
 5. **Top-256 before masking.** The existing Task 2 loader caps containment edges
    before dropping target-nutrient edges. The release preserves this ordering,
    quantity-prioritized selection and graph seed 42. Consequently target-associated
@@ -138,8 +178,10 @@ population std (ddof=0). No standard deviation treats 25 folds as independent.
    already represented pairs. Thus the native Table 2 count is a multigraph
    record count, whereas the formal one-pair definition describes unique pairs.
    The existing target-masked recomputation and this release use the recomputed
-   unique cosine pairs. The native records are not silently reintroduced into
-   the masked evaluation; this distinction should be clarified by the authors.
+   unique cosine pairs. The native records are not reintroduced into the masked
+   evaluation. The final manuscript distinguishes stored records from unique pairs
+   in Section 3.3 and describes binary PPR adjacency and unique masked R-GCN pairs
+   in Section 4.2.
 8. **Label units.** The retained FooDB extractor prefers `standard_content` but
    converts it according to `orig_unit` (falling back to `orig_content` when blank).
    Missing units use a value-dependent heuristic; only supported units are kept.
@@ -152,8 +194,9 @@ population std (ddof=0). No standard deviation treats 25 folds as independent.
    hyperparameters are retained. CPU versus CUDA/AMP, library updates, graph IDs,
    edge order and nondeterministic GPU reductions may change results. The tests
    check semantics and executable training, not equivalence to reported scores.
-10. **Publication and copyright.** The PDF has future journal/header metadata and
-   a DOI-like value. They are not independently established publication facts.
+10. **Publication and copyright.** The PDF inspected during release preparation
+   had future journal/header metadata and a DOI-like value. Those template values
+   are not independently established publication facts.
    CITATION.cff records the manuscript without assigning an invented year, DOI,
    volume or pages. Code copyright names are inferred from the two authors and
    require their confirmation before publication.
@@ -165,7 +208,8 @@ population std (ddof=0). No standard deviation treats 25 folds as independent.
 | FlavorGraph; FoodKG-50k and FoodKG-full, Tables 2/3 | Not packaged: historical multi-source build, exact comparison intersection and raw-source provenance need a separate validation effort. Official acquisition projects are linked in data.md. |
 | HAN/HGT, older KGE encoders, 2-layer/hidden-256 runs | Present in research tree; excluded to keep the release focused on the article's reported R-GCN. No claim to reproduce these auxiliary runs. |
 | Type-specialized learned encoder and branch ablations (Fig. 4c) | Present in `e2e/model.py`, `branches.py`, `inductive.py`; not packaged. Attention/quantity branches are a separate diagnostic model; R-GCN relation drops are not equivalent to those branch ablations. |
-| Historical unmasked Task 1 ablations (Fig. 3), structural coherence bootstrap and anchored-food confounding | Present in model-free runner and revised B-5/B-9. Not packaged because they depend on particular unmasked saved graphs, pair sets or historical CSV scope. New masked relation drops are runnable but are different analyses. |
+| Final masked Task 1 ablation grid (Fig. 3) | Individual conditions are expressible with the released masked pipeline and relation filters. Grid orchestration, saved nine-condition outputs and figure export are not packaged; full Fig. 3 numerical reproduction is not established by the release validation record. |
+| Legacy unmasked Task 1 ablations; structural coherence bootstrap and anchored-food confounding | The unmasked Task 1 bars belong to earlier manuscript versions, not final Fig. 3. The separate diagnostics are present in the research model-free runner and revised B-5/B-9; their saved graphs, pair sets and historical CSV scope are not packaged. |
 | Paired Wilcoxon / Holm tests, Table of paired comparisons | Revised B-1/B-8 and full FoodKG revalidation retain analyses. Not packaged: complete four-baseline outputs and shared provenance are required; testing only a subset would change the Holm family. |
 | Full sensitivity grid / plotting | Revised B-3 and `sensitivity_validation` exist. Individual conditions are runnable via config; grid orchestration, statistics and figure export are excluded and not claimed verified. |
 | Independent nutrient-source validation | Revised B-2 exists but requires an independent source and explicit alignment/provenance; unavailable here, not replaced by FooDB reuse. |
